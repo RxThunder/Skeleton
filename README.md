@@ -48,8 +48,7 @@ architecture pattern.
 
 ## Installation
 
-Plug & Play
-`composer create-project th3mouk/thunder-framework name-of-my-project && mkdir name-of-the-project`
+`composer create-project th3mouk/thunder-framework name-of-my-project && mkdir name-of-the-project && touch .env`
 
 ## Usage
 ### Console
