@@ -5,10 +5,46 @@
 </p>
 
 ## About Thunder CLI Framework
-
 This repository is the scaffold of the Thunder micro CLI framework.
 
 You can use it and modify the structure to adapt on your needs.
+
+## Philosophy
+Sometimes you just need something very simple when you're event programming, 
+a small repository for your boundary, with few dependencies, and don't want to 
+be force to use a library or an other.
+
+All you need is a reaction to an event that has been occurred in your system, 
+externally or internally.
+
+However, this project is born inside a repository using Reactive Programming 
+by default, RabbitMQ consumers, a router, EventStore projections and events, 
+mysql, Redis connectors, and many more.
+
+Simple but powerful.
+
+## Why Built in
+### Console
+No mystery, CLI = Command line interface
+
+### Dependency Injection
+Usage of the dependency injection pattern, ease decoupling your code and quality 
+test writing. I recommend it as a best practice.  
+
+### Configuration
+This component allows you to use XML, YAML & PHP files, and you can access and use 
+them directly into constructors through DI.
+
+### Router
+This component is the base of the project, Command Bus and Event Dispatcher 
+pattern aren't adapted to non acknowledge (`nack`) messages.
+
+It force to use [Subjects](http://reactivex.io/documentation/subject.html) in cases 
+where `ack/nack` is necessary on the message.
+
+It needs some `AbstractRoute` and send an `AbstractSubject` to the right one.
+An `AbstractRoute` can be associated to a `Controller` in traditional software 
+architecture pattern.
 
 ## Installation
 
@@ -16,9 +52,7 @@ Plug & Play
 `composer create-project th3mouk/thunder-framework name-of-my-project && mkdir name-of-the-project`
 
 ## Usage
-
 ### Console
-
 At the begining, there is a console.
 CLI for Command Line Interface.
 
@@ -27,28 +61,31 @@ To start the project you need to execute a PHP file available in the vendors, `v
 All commands available will be prompted.
 
 ### Subject
-
 When your are consuming a source of data, each message is converted into an
-`AbstractSubject`. This subject is an `Observable` with some subscribers already plugged.
+`AbstractSubject`. This subject is an `Observable` & an `Observer` with some 
+subscribers already plugged.
+
 One of the subscribers is responsible to handle the `acknowledge/non-acknowledge` behavior.
 
 So basically, when the subject is completed, the message is acknowledged, and 
-you will received a new one when available. 
+you will received a new message when available. 
 
 ### Create a new Route
+Just extends the `Th3Mouk\Thunder\Route\AbstractRoute` into `/src` and it will 
+be automatically added to the router.
 
-Just extends the `Th3Mouk\Thunder\Route\AbstractRoute` and it will be automatically
-added to the router.
+You can modify the `config/services.php` and `composer.json` autoload if you 
+don't want to use `src` folder.
 
-#### Handler concept
+#### Extra: Handler concept
+I personally use `src/route` and `src/handler` structure.
+The term `handler` coming from the Command Bus pattern.
 
-I personnaly use `src/route` and `src/handler` structure for my file.
-The term handler coming from the command bus pattern.
-
-An handler is a small invokable unit that can be reused in multiple contexts, sagas of events.
-The main advantage of this is you can decouple your code and test it correctly, 
+An handler here, is a small invokable unit that can be reused in multiple 
+contexts, sagas of events, or here again routes.
+The main advantage of this, is you can decouple your code and test it correctly, 
 because yes, this handler will be automatically injected in the container, 
-and you can use DI in the constructor :tada:.
+and you can use DI in its constructor :tada:.
 
 An example can be:
 ```php
@@ -111,7 +148,6 @@ class Test extends AbstractRoute
 ```
 
 ### Start consuming
-
 If you use the RabbitMq consumer you can start with `php console listen:broker:rabbit test default`
 `test` is the name of the queue to consume
 `default` is the name of the connection to use
