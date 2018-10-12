@@ -9,6 +9,8 @@
       "email": "marodon.jeremy@gmail.com"
     }
   ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "require": {
     "th3mouk/thunder": "^0.1.0"
   },
