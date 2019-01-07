@@ -1,18 +1,18 @@
 {
-  "name": "th3mouk/thunder-framework",
-  "description": "Event driven micro CLI framework with Reactive Programming flavors",
+  "name": "rxthunder/skeleton",
+  "description": "Fork & Play repository, production grade, of event driven CLI micro framework with Reactive Programming flavors",
   "type": "project",
   "license": "MIT",
   "authors": [
     {
-      "name": "Jérémy",
+      "name": "Jérémy Marodon",
       "email": "marodon.jeremy@gmail.com"
     }
   ],
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "th3mouk/thunder": "^0.2.0"
+    "rxthunder/core": "^0.3.0"
   },
   "autoload": {
     "psr-4": {
