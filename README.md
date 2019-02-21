@@ -48,7 +48,7 @@ architecture pattern.
 
 ## Installation
 
-`composer create-project th3mouk/thunder-framework name-of-my-project && mkdir name-of-the-project && touch .env`
+`composer create-project rxthunder/skeleton name-of-my-project && mkdir name-of-the-project && touch .env`
 
 ## Usage
 ### Console
