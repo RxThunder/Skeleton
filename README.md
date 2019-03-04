@@ -1,21 +1,22 @@
-<p align="center"><img src="https://github.com/Th3Mouk/Thunder/raw/master/resources/thunder-logo.svg?sanitize=true"></p>
+<p align="center"><img src="https://github.com/RxThunder/Core/raw/master/resources/thunder-logo.svg?sanitize=true"></p>
 
 <p align="center">
-<a href="https://packagist.org/packages/th3mouk/thunder-framework"><img src="https://poser.pugx.org/th3mouk/thunder-framework/license" alt="License"></a>
+<a href="https://packagist.org/packages/RxThunder/core"><img src="https://poser.pugx.org/rxthunder/core/license" alt="License"></a>
+<a href="https://packagist.org/packages/RxThunder/core"><img src="https://poser.pugx.org/rxthunder/core/v/stable" alt="License"></a>
 </p>
 
-## About Thunder CLI Framework
-This repository is the scaffold of the Thunder micro CLI framework.
+## About Thunder CLI μFramework
+This repository is the scaffold of the Thunder CLI micro-framework.
 
 You can use it and modify the structure to adapt on your needs.
 
 ## Philosophy
-Sometimes you just need something very simple when you're event programming, 
-a small repository for your boundary, with few dependencies, and don't want to 
+Sometimes you just need a very simple deamon, eventloop based, when you're event programming. 
+A small repository for your boundary, with few dependencies, and don't want to 
 be force to use a library or an other.
 
 All you need is a reaction to an event that has been occurred in your system, 
-externally or internally.
+externally or internally (pub/sub or saga f.e.).
 
 However, this project is born inside a repository using Reactive Programming 
 by default, RabbitMQ consumers, a router, EventStore projections and events, 
@@ -23,7 +24,7 @@ mysql, Redis connectors, and many more.
 
 Simple but powerful.
 
-## Why Built in
+## What built in
 ### Console
 No mystery, CLI = Command line interface
 
@@ -46,9 +47,13 @@ It needs some `AbstractRoute` and send an `AbstractSubject` to the right one.
 An `AbstractRoute` can be associated to a `Controller` in traditional software 
 architecture pattern.
 
+### RabbitMQ & EventStore
+ 
+There is currently some consoles and dependencies in it core. They must be extracted later.
+
 ## Installation
 
-`composer create-project th3mouk/thunder-framework name-of-my-project && mkdir name-of-the-project && touch .env`
+`composer create-project rxthunder/skeleton name-of-the-project && mkdir name-of-the-project`
 
 ## Usage
 ### Console
