@@ -25,19 +25,24 @@ mysql, Redis connectors, and many more.
 Simple but powerful.
 
 ## What built in
-### Console
-No mystery, CLI = Command line interface
+### Console Component
+The whole concept is base on consoles.
+Instead of reinvent the wheel, Thunder use [Silly](https://github.com/mnapoli/silly)
+micro-framework. An `AbstractConsole` is provided by the framework, allowing
+classes extending it to be automatically loaded and usable. 
 
 ### Dependency Injection
 Usage of the dependency injection pattern, ease decoupling your code and quality 
-test writing. I recommend it as a best practice.  
+test writing. [Symfony DI](https://symfony.com/doc/current/components/dependency_injection.html)
+component has been chosen for it many features [](https://symfony.com/doc/current/components/dependency_injection.html#learn-more)
+improving developer experience.   
 
-### Configuration
-This component allows you to use XML, YAML & PHP files, and you can access and use 
+### Configuration Component
+This component allows you to use XML, YAML & PHP files. You can access and use 
 them directly into constructors through DI.
 
 ### Router
-This component is the base of the project, Command Bus and Event Dispatcher 
+This component is central in the project, Command Bus and Event Dispatcher 
 pattern aren't adapted to non acknowledge (`nack`) messages.
 
 It force to use [Subjects](http://reactivex.io/documentation/subject.html) in cases 
@@ -47,13 +52,9 @@ It needs some `AbstractRoute` and send an `AbstractSubject` to the right one.
 An `AbstractRoute` can be associated to a `Controller` in traditional software 
 architecture pattern.
 
-### RabbitMQ & EventStore
- 
-There is currently some consoles and dependencies in it core. They must be extracted later.
-
 ## Installation
 
-`composer create-project rxthunder/skeleton name-of-the-project && mkdir name-of-the-project`
+`composer create-project rxthunder/skeleton name-of-your-project`
 
 ## Usage
 ### Console
