@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "rxthunder/core": "^0.6.0"
+    "rxthunder/core": "^1.0"
   },
   "autoload": {
     "psr-4": {
